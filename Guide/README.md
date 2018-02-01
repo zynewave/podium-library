@@ -28,7 +28,7 @@ Podium will detect the "Track name:" part as the text to show in the dialog, and
 
 Podium can detect two different uses of translation links:
 
-1. Links specified on header lines (lines starting with #). All the text following the link on the header line is used as the UI text. The entire section below the header (all lines until the next header line) is used as popup help.
-2. Links specified in a paragraph. If the text following the link is written in bold (using the \*\* markdown syntax) then that text is used as the UI text, and any text following the bold part (skipping any : character immediately following the bold text) is used as popup help.
+1. Links specified on header lines (lines starting with #): All the text following the link on the header line is used as the UI text. The entire section below the header (all lines until the next header line) is used as popup help.
+2. Links specified in a paragraph: If the text immediately following the link is written in bold (using the \*\* markdown syntax) the bold text is used as the UI text. If the last character in the bold text or the first character after the bold text is a colon, any text from the colon till the end of the paragraph is used as popup help.
 
 When translating to another language, make sure that the URL inside the markdown links are not modified.
