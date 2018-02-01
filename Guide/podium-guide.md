@@ -88,6 +88,8 @@ This guide is provided "as is" without any warranty of any kind. Zynewave and it
   * [4.6.3\. Edit Menu](#h.44nlc4xedbmx)
   * [4.6.4\. View Menu](#h.nq3103tkz4a2)
   * [4.6.5\. Grid & Snap Menu](#h.2uqlo93h56m2)
+  * [4.6.6. Marker Menu](#h.marker-menu)
+  * [4.6.7. Tempo Menu](#h.tempo-menu)
 * [4.7\. Sliding & Zooming](#h.rgl78d56lg3y)
   * [4.7.1\. Navigator](#h.rd01gy2jtmx8)
   * [4.7.2\. Zoom Snapshots](#h.nh1ve9ia0sne)
@@ -532,7 +534,7 @@ When you are dragging an object, a small translucent image will be attached to t
 
 If you drag the object over an area that does not accept the object, the mouse cursor turns into a 'no go' cursor. If you drag over an area that can accept the object, a translucent mask is drawn to highlight what will be affected by the drop.
 
-As with any mouse drag operation in Podium you can abort the drag operation by right clicking while still holding the left button.
+As with any mouse drag operation in Podium you can abort the drag operation by right-clicking while still holding the left button.
 
 If you want to reorganize objects in the project, it is recommended that you move objects with drag and drop instead of using the cut and paste edit menu commands. When cutting objects to the clipboard they are removed from the project and thus any links to the objects in arrangements are reset. Moving objects with drag and drop will not break any links between the objects.
 
@@ -1214,6 +1216,45 @@ The Power, Play, Loop, Record, Metronome, Punch In and Punch Out buttons can be 
 
 #### <a name="h.2uqlo93h56m2"></a>4.6.5\. Grid & Snap Menu
 
+#### <a name="h.marker-menu"></a>4.6.6. Marker Menu
+
+Right-clicking anywhere on the marker lane will bring up the marker menu. The following menu items are available:
+
+*   [](#MarkerSelectAll)**Select All Markers**: Selects all marker events and deselects other types of events.
+
+If you have right-clicked on an empty area of the timeline:
+
+*   [](#MarkerNew)**New Marker... ({})**: Inserts a new marker event at the clicked position. The position is snapped if the editor snap mode is enabled. The menu item is disabled if there already is a marker event at the specified position.
+*   [](#MarkerNewAtCursor)**New Marker at Cursor ({})**: Inserts a new marker event at the edit cursor position. The menu item is disabled if there already is a marker event at the specified position. The menu item does not open the **Marker properties** dialog, and thus the Alt+M shortcut can be used to create markers on the fly during playback.
+
+If you have right-clicked on an existing marker event:
+
+*   [](#MarkerSetSegment)**Set Segment Selection**: Selects the segment between the clicked marker and the next marker.
+*   [](#MarkerSetPunch)**Set Punch Range**: Sets the punch range between the clicked marker and the next marker.
+*   [](#MarkerSetLoop)**Set Loop Range**: Sets the loop range between the clicked marker and the next marker.
+*   [](#MarkerAddPunch)**Extend Punch Range**: Extends the punch range with the range between the clicked marker and the next marker.
+*   [](#MarkerAddLoop)**Extend Loop Range**: Extends the loop range with the range between the clicked marker and the next marker.
+*   **Delete Event** or **Delete Events**: Deletes any selected events.
+*   [](#MarkerProperties)**Marker Properties**: Changes settings for the clicked marker event.
+
+#### <a name="h.tempo-menu"></a>4.6.7. Tempo Menu
+
+Right-clicking anywhere on the tempo lane will bring up the tempo menu. The following menu items are available:
+
+*   [](#TempoSelectAll)**Select All Tempo Events**: Selects all tempo events and deselects other types of events.
+
+If you have right-clicked on an empty area of the timeline:
+
+*   [](#TempoNew)**New Tempo Event...**: Inserts new tempo event at clicked position.
+*   [](#TempoNewAtCursor)**New Tempo Event at Cursor...**: Inserts new tempo event at snapped edit cursor position.
+*   [](#TempoAdjustCursor)**Adjust Tempo to Align Grid at Cursor**: Adjusts the previous tempo event to make the grid lines align at the edit cursor time location. This can be used to create a tempo map based on an audio recording. The editor quantize value determines the grid snap resolution.
+*   [](#TempoAdjustStretch)**Adjust Tempo and Stretch to Align Grid at Cursor**: Adjusts the previous tempo event and stretches sequences to make the grid lines align at the edit cursor time location.
+
+If you have right-clicked on an existing tempo event:
+
+*   **Delete Event** or **Delete Events**: Deletes any selected events.
+*   [](#TempoProperties)**Tempo Event Properties**: Changes settings for the clicked tempo event.
+
 ### <a name="h.rgl78d56lg3y"></a>4.7\. Sliding & Zooming
 
 This chapter describes the different methods you can use to slide and zoom the timeline area in the editors.
@@ -1353,9 +1394,9 @@ The height of tracks that are neither minimized nor collapsed are defined by a c
 
 Marker events can be used to identify and divide timeline sections of your arrangement. In a typical song for example, you could use marker events to indicate where the different verses and choruses begin. Marker events are shown on the lane just below the timeline ruler. Each marker is displayed as a tag where the left edge is aligned at the event time position. The name of the marker that is placed at or before the start of the displayed timeline range is shown at the left edge of the lane.
 
-Right-clicking a marker event shows a context menu with options for the clicked event. There are commands for selecting all marker events and setting the segment, punch and loop ranges between the clicked marker and the next marker on the timeline. There are also commands to extend the punch and loop ranges. Right-clicking on a blank spot on the timeline shows a context menu with options for selecting all marker events or inserting a new marker either at the clicked position or at the play cursor position (key shortcut Alt+M). The command to insert a marker at the play cursor position does not open the **Marker properties** dialog, and thus the Alt+M shortcut can be used to create markers on the fly during playback. The editor snap mode and quantize value will affect the insert positions.
+Right-clicking a marker event shows a context menu with options for the clicked event. There are commands for selecting all marker events and setting the segment, punch and loop ranges between the clicked marker and the next marker on the timeline. Right-clicking on an empty area on the timeline shows a context menu with options for inserting a new marker either at the clicked position or at the play cursor position (key shortcut Alt+M). The editor snap mode and quantize value will affect the insert positions. See the [Marker Menu](#h.marker-menu) section for more information.
 
-New marker events can be inserted by double-clicking with the select tool or clicking with the pencil tool on a blank spot in the timeline. Use the scalpel tool if a previous marker tag overlaps the position where you want to insert a new event.
+New marker events can be inserted by double-clicking with the select tool or clicking with the pencil tool on an empty area in the timeline. Use the scalpel tool if a previous marker tag overlaps the position where you want to insert a new event.
 
 If you have selected a marker event, press Left/Right to navigate the marker events. Press Ctrl+Left/Right to move selected events in steps of the editor quantize value. Press the Enter key to open the **Marker Properties** dialog.
 
@@ -1369,7 +1410,7 @@ Use the mouse wheel over the marker event lane to scroll the timeline so that it
 
 Arrangements created with musical time resolution use tempo events to define time signature and tempo changes on the timeline. Tempo events are shown on the lane below the marker lane. The time signature and bpm value that is active at the start of the displayed timeline range is shown at the left edge of the region.
 
-Right-clicking a tempo event shows a context menu with options for the clicked event. Right-clicking on a blank spot on the timeline shows a context menu that allows you to select all tempo events or to insert a new tempo event either at the clicked position or at the edit cursor position. The editor snap mode and quantize value will affect the insert positions. The **Adjust Tempo To Cursor** command is explained later in this section.
+Right-clicking a tempo event shows a context menu with options for the clicked event. Right-clicking on an empty area on the timeline shows a context menu that allows you to select all tempo events, insert new tempo events and adjust tempo events so they align with an audio recording. The editor snap mode and quantize value will affect the insert positions. See the [Tempo Menu](#h.tempo-menu) section for more information.
 
 As an alternative to editing tempo events in the timeline, you can double-click the tempo indicator in the transport toolbar to access the properties of the last tempo event before the current play cursor position.
 
@@ -1377,17 +1418,15 @@ If a tempo event with a time signature change is not placed on a bar line then t
 
 If you have any sound events on the tracks and you insert a tempo change, you may notice that the waveform shown inside the events will compress or expand accordingly. Sounds are played at the arrangement sample rate, so changing the tempo causes the waveform to shift in relation to the bar/beat positions. If you have dragged a sound file onto a track, the event will be resized so that the entire sound still plays. If you have resized the sound event or created it with the pencil tool, the event will not be resized as the size of the event will be locked to the bar/beat positions.
 
-The **Adjust Tempo To Cursor** context menu command can be used to create a tempo map based on an audio recording. The command will adjust the tempo of the tempo event located before the edit cursor position to make the grid lines align with the edit cursor time location. The editor quantize value determines the grid snap resolution.
-
-If you want to extract the tempo from an imported loop file, simply insert a tempo event at the start of the loop, select the loop sound event, use the timeline ruler **Set Cursor At Selection End** command, and finally use the **Adjust Tempo To Cursor** command. The tempo event should now be set to the loop tempo and the position you marked with the edit cursor should be aligned on a bar/beat grid line.
+If you want to extract the tempo from an imported loop file, simply insert a tempo event at the start of the loop, select the loop sound event, use the timeline ruler **Set Cursor At Selection End** command, and finally use the **Adjust Tempo to Align Grid at Cursor** command. The tempo event should now be set to the loop tempo and the position you marked with the edit cursor should be aligned on a bar/beat grid line.
 
 To tempo map a recording of a longer live performance with tempo variations:
 
-Align the sound event so that the first bar/beat in the recording is on a bar/beat grid line. If this position is not at the start of the recording, then also insert a tempo event at the first bar/beat position. Now move the edit cursor to the next noticeable bar/beat position in the sound and use the **Adjust Tempo To Cursor** command.
+Align the sound event so that the first bar/beat in the recording is on a bar/beat grid line. If this position is not at the start of the recording, then also insert a tempo event at the first bar/beat position. Now move the edit cursor to the next noticeable bar/beat position in the sound and use the **Adjust Tempo to Align Grid at Cursor** command.
 
 You now have a tempo indication of the recording. If this tempo is general for the song, and you had a pause before the recording started, you could replace the default tempo event at the start of the arrangement with this tempo, and then realign the sound event to the new bar/beat grid positions.
 
-Repeat this procedure from start to end of the recording. Find the next position where the tempo is changing, insert a tempo event at this position, move the edit cursor to the next bar/beat position in the recording, and use the **Adjust Tempo To Cursor** command.
+Repeat this procedure from start to end of the recording. Find the next position where the tempo is changing, insert a tempo event at this position, move the edit cursor to the next bar/beat position in the recording, and use the **Adjust Tempo to Align Grid at Cursor** command.
 
 #### <a name="h.bxehbr2enpil"></a>4.8.5\. Track Tags
 
@@ -1806,11 +1845,7 @@ _Tip:_ The track panel in the inspector provides controls for quick access to th
 *   [](#Track.Gain.option)**Output &gain:**
 *   [](#Track.Pan.option)**Output &panning:** These options determine whether controls for gain and panning should be displayed for the track. The value fields to the right of the options allow you to enter precise values that may otherwise be difficult to set with sliders.
 *   [](#)**Bus/sidechain send gain:** The value field is only available for effect tracks assigned with a send mapping, such as a bus send or a sidechain send to an effect plugin. See the [busses](#h.ecu67864j4uj) section for more information.
-*   [](#Track.MeterMode.label)**&Meter mode:**: Each track can be configured to show **Peak** and/or **RMS** meters on the track header and the mixer strip. Clicking the meter on any mixer strip will toggle RMS metering on/off. The meter options can also be set with the options on the **Meter** submenu of the track context menu. You can select to use a different RMS meter scale, such as the K-System, in the **Arrangement Properties** dialog. The available options are:
-    *   [](#Track.MeterMode.Disabled)**Disabled**
-    *   [](#Track.MeterMode.Peak)**Peak**
-    *   [](#Track.MeterMode.Rms)**RMS**
-    *   [](#Track.MeterMode.PeakAndRms)**Peak + RMS**
+*   [](#Track.MeterMode.label)**&Meter mode:** The available options are: [](#Track.MeterMode.Disabled)**Disabled**, [](#Track.MeterMode.Peak)**Peak**, [](#Track.MeterMode.Rms)**RMS**, [](#Track.MeterMode.PeakAndRms)**Peak + RMS**. Each track can be configured to show **Peak** and/or **RMS** meters on the track header and the mixer strip. Clicking the meter on any mixer strip will toggle RMS metering on/off. The meter options can also be set with the options on the **Meter** submenu of the track context menu. You can select to use a different RMS meter scale, such as the K-System, in the **Arrangement Properties** dialog.
 
 ### <a name="h.6k5bq12jjm1p"></a>5.4\. Track Templates
 
