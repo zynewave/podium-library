@@ -2,7 +2,7 @@
 
 # <a name="podiumguide"></a>Podium Guide
 
-Last updated: July 19, 2018  
+Last updated: August 19, 2018  
 Copyright © Zynewave  
 [zynewave.com](https://zynewave.com/)
 
@@ -32,17 +32,14 @@ This guide is provided "as is" without any warranty of any kind. Zynewave and it
   * [2.4.1. Podium Menu](#toc.podiummenu)
   * [2.4.2. Setup Menu](#toc.setupmenu)
   * [2.4.3. Window Menu](#toc.windowmenu)
-  * [2.4.4. Tab Bar](#toc.tabbar)
-  * [2.4.6. Drag and Drop](#toc.draganddrop)
-  * [2.4.7. Stickie Notes](#toc.stickienotes)
+  * [2.4.4. Drag and Drop](#toc.draganddrop)
+  * [2.4.5. Stickie Notes](#toc.stickienotes)
 * [2.5. Start Page](#toc.startpage)
   * [2.5.1. File Menu](#toc.start.filemenu)
   * [2.5.2. View Menu](#toc.start.viewmenu)
 * [2.6. Project Page](#toc.projectpage)
   * [2.6.1. New Project Panel](#toc.newprojectpanel)
-  * [2.6.1. File Menu](#toc.project.filemenu)
-  * [2.6.1. Project Info Panel](#toc.projectinfopanel)
-  * [2.6.2. Recent Projects Panel](#toc.recentprojectspanel)
+  * [2.6.2. File Menu](#toc.project.filemenu)
   * [2.6.3. Content Panel](#toc.contentpanel)
   * [2.6.4. Content Menu](#toc.contentmenu)
   * [2.6.5. Content List Menu](#toc.contentlistmenu)
@@ -190,7 +187,7 @@ This guide is provided "as is" without any warranty of any kind. Zynewave and it
   * [7.4.1. Surface and Text Colors](#toc.colors.surfaceandtext)
   * [7.4.2. Indicator and Highlight Colors](#toc.colors.indicatorsandhighlight)
   * [7.4.3. Track Colors](#toc.colors.track)
-  * [7.4.4. Color Setups](#toc.colorsetups)
+  * [7.4.4. Color Themes](#toc.colorthemes)
 * [7.5. Favorite Folders](#toc.favoritefolders)
 * [7.6. Editor Profiles](#toc.editorprofiles)
   * [7.6.1. Space Region Properties](#toc.spaceregion)
@@ -262,7 +259,7 @@ These are some of the conventions and formatting used to keep the guide layout c
 
 #### Screenshots
 
-*   Screenshots of the Podium UI uses the “Paper” Podium color setup.
+*   Screenshots of the Podium UI uses the “Paper” Podium color theme.
 *   Screenshots of dialog boxes uses the default Windows 7 Aero theme.
 
 * * *
@@ -431,8 +428,8 @@ The **Project Properties** dialog is opened by selecting **Project Properties** 
 *   **File path**: If the project has been saved, this field shows the full file path of the project file.
 *   **Project window image file**: If an image file is specified, it will be painted as wallpaper on the project page. If the image is smaller than the page, it will be tiled to fill the entire page. Use the **...** button to open a file dialog for selecting an image file. You can also drag and drop image files from a Windows file explorer onto the Podium project window to set the wallpaper image.
 *   **Track timeline image file**: If an image file is specified, it will be painted as wallpaper on the tracks timeline area in arrangement editors.
-*   **Track image opacity**: A value lower than 100% will draw the image blended with the timeline fill color of the current color setup.
-*   **Dye track image with timeline fill color**: This option combined with the opacity setting can help tone down the image and make it blend in with your current Podium color setup.
+*   **Track image opacity**: A value lower than 100% will draw the image blended with the timeline fill color of the current color theme.
+*   **Dye track image with timeline fill color**: This option combined with the opacity setting can help tone down the image and make it blend in with your current Podium color theme.
 
 The specified image files are stored as file references in the project file. If the image files are located in the folder or a subfolder of where the project file is saved, the image file references are stored with a file path relative to the project folder. This ensures that the image files still can be loaded with the project if you later on move or rename the project folder.
 
@@ -506,14 +503,14 @@ Press Alt+S to open the [](#app.setupmenu.label)**Setup** menu.
 *   [](#cmd.setup.resetmidi)**&Reset MIDI Devices**: Sends note and controller reset messages to all connected external MIDI devices. Use this to stop notes which may have become stuck due to glitches in the MIDI communication.
 *   [](#cmd.setup.interfaces)**&Interfaces...**: Opens the **[Interfaces](#toc.interfaces)** dialog.
 *   [](#cmd.setup.preferences)**&Preferences...**: Opens the **[Preferences](#toc.preferences)** dialog where you configure global application options.
-*   [](#cmd.setup.colors)**&Colors...**: Opens the **[Colors](#toc.colors)** dialog where you configure all the color settings that are saved to color setup files.
+*   [](#cmd.setup.colors)**&Colors...**: Opens the **[Colors](#toc.colors)** dialog where you configure all the color settings that are saved to color theme files.
 *   [](#cmd.setup.favorites)**&Favorite Folders...**: Opens the **[Favorite Folders](#toc.favoritefolders)** dialog where you configure the folders that will appear as favorite shortcuts in the Podium browsers.
 *   [](#cmd.setup.profiles)**&Editor Profiles...**: Opens the **[Editor Profiles](#toc.editorprofiles)** dialog where you configure all the different types of editor profiles.
 *   [](#cmd.setup.windows)**&Windows...**: Opens the **[Windows](#toc.windows)** dialog where you can manage all created windows and their assignment to different virtual screens.
 *   [](#cmd.setup.restoredefault)**Restore &Default Setup**: Deletes the current setup and replaces it with the default setup.
 *   [](#cmd.setup.restoredefaultprofiles)**Restore Default Editor Profiles**: Replaces the current editor profiles with the editor profiles from the default setup.
-*   [](#cmd.setup.loadcolor)**Load Color Setup**: Submenu with shortcuts to all the color setup files.
-*   [](#cmd.setup.savecolor)**Save Color Setup...**: Opens a file dialog where you can save the current color setup to a [color setup file](#toc.colorsetups). The files you save will appear in the **Load Color Setup** submenu.
+*   [](#cmd.setup.loadcolor)**Load Color Theme...**: Opens a file dialog where you can load a color theme.
+*   [](#cmd.setup.savecolor)**Save Color Theme...**: Opens a file dialog where you can save the current color theme to a [color theme file](#toc.colorthemes).
 *   [](#cmd.setup.load)**&Load Setup...**: Opens a file dialog where you can load a setup file you previously saved. Alternatively you can also drag and drop setup files on a project window.
 *   [](#cmd.setup.save)**&Save Setup...**: Opens a file dialog where you can save a backup of the current setup.
 *   [](#cmd.setup.exploresetupfolder)**Explore Setup Folder**: Opens a Windows file explorer for the setup folder.
@@ -532,7 +529,7 @@ Press Alt+W to open the [](#app.windowmenu.label)**Window** menu.
 *   [](#cmd.window.screen3)**Screen &3**: Switches to virtual screen 3.
 *   [](#cmd.window.screen4)**Screen &4**: Switches to virtual screen 4.
 
-### <a name="toc.draganddrop"></a>2.4.6. Drag and Drop
+### <a name="toc.draganddrop"></a>2.4.4. Drag and Drop
 
 Objects can be dragged from any list or button that shows the object with its icon. You can use drag and drop to reorder objects in the project, or you can drag and drop objects in an arrangement editor to assign them to tracks or create events on the timeline. When you are drag-reordering objects in a list, you can hold down the Ctrl key to drop the object as a child of the object under the cursor. You can also drop an object onto the page tabs at the top of the project window, to drop the object as a child of the object on that page.
 
@@ -546,7 +543,7 @@ As with any mouse drag operation in Podium you can abort the drag operation by r
 
 If you want to reorganize objects in the project, it is recommended that you move objects with drag and drop instead of using the cut and paste edit menu commands. When cutting objects to the clipboard they are removed from the project and thus any links to the objects in arrangements are reset. Moving objects with drag and drop will not break any links between the objects.
 
-### <a name="toc.stickienotes"></a>2.4.7. Stickie Notes
+### <a name="toc.stickienotes"></a>2.4.5. Stickie Notes
 
 ![](images/window_stickie_note.png)
 
@@ -626,7 +623,7 @@ The [](#newproject.title)**New Project** panel contains information and controls
     *   [](#newproject.arroption.dialog)**Open properties dialog for a new arrangement**: Opens the properties dialog for a new arrangement when the project is created.
 *   [](#newproject.create)**Create project**: Creates the project based on your selections on this page. A plugin scanning progress dialog will appear if you selected to build or update the plugin database. If you later on change your interface or plugin configurations you can update these in your existing projects using the **Device** panel on the project page.
 
-### <a name="toc.project.filemenu"></a>2.5.1. [](#project.filemenu)File Menu
+### <a name="toc.project.filemenu"></a>2.6.2. [](#project.filemenu)File Menu
 
 Press Alt+F to open the [](#project.filemenu.label)**File** menu.
 
@@ -639,7 +636,7 @@ Press Alt+F to open the [](#project.filemenu.label)**File** menu.
 *   [](#cmd.project.file.exploreprojectfolder)**Explore Project Folder**: Opens a Windows file explorer for the current project folder.
 *   [](#cmd.project.file.closeproject)**&Close Project**: Closes the project.
 
-### <a name="toc.projectinfopanel"></a>2.6.1. Project Info Panel
+### <a name="toc.projectinfopanel"></a>2.6.2. Project Info Panel
 
 The info panel at the upper left corner shows information for the current project. The panel has buttons for opening the **Project Properties** dialog and the project stickie note window.
 
@@ -657,7 +654,7 @@ The content list shows all arrangements and sounds in the project. New content c
 
 If you prefer to have one file for each arrangement you work on, you can choose to create a new project each time you start on a new arrangement. However, in the content panel you have the option to create multiple arrangements in a single project.
 
-If after loading a project you see a sound that has a red icon in the list, it indicates a "missing" sound, meaning that the linked sound file could not be loaded. This can happen if you have moved the sound file or have renamed file folders. To relink missing sounds to their sound files you can select one or more missing sounds in the list, right-click the selection and use the **Search for Missing Sounds in Folder...** command. Podium will search for the missing files in the folder you specify. Note that this method will not work if you have renamed the sound files. In that case you should select **Properties** for the missing sound, and use the **Relink file...** button in the **Sound Properties** dialog.
+If after loading a project you see a sound that has a red icon in the list, it indicates a "missing" sound, meaning that the linked sound file could not be loaded. This can happen if you have moved the sound file or have renamed file folders. To relink missing sounds to their sound files you can select one or more missing sounds in the list, right-click the selection and use the **Search for Missing Sounds in Folder...** command. Podium will search for the missing files in the folder you specify. Note that this method will not work if you have renamed the sound files. In that case you should select **Properties** for the missing sound, and use the **Link file...** button in the **Sound Properties** dialog.
 
 ### <a name="toc.contentmenu"></a>2.6.4. [](#project.contentmenu)Content Menu
 
@@ -665,8 +662,8 @@ Press Alt+C to open the [](#project.contentmenu.label)**Content** menu.
 
 *   [](#cmd.project.content.newfolder)**New &Folder...**: Opens the properties dialog for a new folder object. The new empty folder is inserted at the bottom of the list. If your project contains a large number of arrangements and sounds, you may find it useful to organize them into folders.
 *   [](#cmd.project.content.newarrangement)**New &Arrangement...**: Opens the properties dialog for a new arrangement object. After the arrangement is created it is opened in the arrangement editor.
-*   [](#cmd.project.content.newsound)**New &Sound...**: Opens the properties dialog for a new sound object. After the sound is created it is opened in the sound editor. Creating new sounds is only necessary if you want to record directly in the sound editor. Recording audio in the arrangement editor will automatically create new sounds. If you want to edit an existing sound file, you should use the **Import File...** command, or drag the sound file onto the project page or onto a track in an arrangement editor.
-*   [](#cmd.project.content.importfile)**Import File...**: Various types of media files can be imported to create either arrangement or sound objects. Importing a sound file (.wav or .aif) will create a sound object that links to the sound file. Importing a MIDI file (.mid) will create an arrangement. The tracks in the arrangement will be set up with the first available instrument in the device list that matches the MIDI channel numbers specified in the MIDI file. Note that you can also import MIDI files by dragging and dropping them onto tracks, but in that case only the first note or curve sequence in the MIDI file will be imported onto the track.
+*   [](#cmd.project.content.newsound)**New &Sound...**: Opens the properties dialog for a new sound object. After the sound is created it is opened in the sound editor. Creating new sounds is only necessary if you want to record directly in the sound editor. Recording audio in the arrangement editor will automatically create new sounds. If you want to edit an existing sound file, you should use the **Import Media...** command, or drag the sound file onto the project page or onto a track in an arrangement editor.
+*   [](#cmd.project.content.importmedia)**Import Media...**: Various types of media files can be imported to create either arrangement or sound objects. Importing a sound file (.wav or .aif) will create a sound object that links to the sound file. Importing a MIDI file (.mid) will create an arrangement. The tracks in the arrangement will be set up with the first available instrument in the device list that matches the MIDI channel numbers specified in the MIDI file. Note that you can also import MIDI files by dragging and dropping them onto tracks, but in that case only the first note or curve sequence in the MIDI file will be imported onto the track.
 
 ### <a name="toc.contentlistmenu"></a>2.6.5. Content List Menu
 
@@ -706,7 +703,7 @@ This menu provides commands tailored for easy management of the I/O, bus and plu
 *   [](#cmd.project.device.loadpluginsetuptemplate)**Load Plugin Setup from Template**: Shows a submenu with a list of all your project templates. Selecting a project template will replace the plugin setup in the current project with the plugin setup from the project template. If arrangements in the current project uses plugins mappings that are not present in the selected template, then these plugin mappings are preserved and merged with the plugin setup from the template.
 *   [](#cmd.project.device.importplugin)**Import Plugin...**: Opens a file dialog where you can select one or more VST plugin files. The selected plugins will be imported and added to the end of the device list. In comparison to the plugin database commands, plugin import allows you to set up a smaller set of plugins in your project.
 *   [](#cmd.project.device.importpluginfolder)**Import Plugins from Folder...**: Opens a **Browse For Folder** dialog. Podium will scan for and import detected plugins in the specified folder and any subfolders. Plugins that are already imported are skipped.
-*   [](#cmd.project.device.importhardwaredef)**Import Hardware Definition**: Shows a submenu with a list of all your hardware definition files. See the [import hardware definition](#toc.importhardwaredefinition) section for more information.
+*   [](#cmd.project.device.importhardwaredef)**Import Hardware Definition...**: Opens a file dialog where you can import a hardware definition file. Once a file is loaded the **[Import Hardware Definition](#toc.importhardwaredefinition)** dialog is opened where you specify how the hardware device is connected.
 *   [](#cmd.project.device.selectmissing)**Select All Missing Plugins**: Selects all missing plugins in the list. If you no longer have the plugins available you can choose to delete the mappings by right-clicking the selection and use **Delete**.
 *   [](#cmd.project.device.searchmissing)**Search for Missing Plugins**: Searches for and relinks all the missing plugins that can be found in the VST plugin scan folders as configured in **Preferences**.
 
@@ -727,13 +724,13 @@ This menu provides commands tailored for easy management of the I/O, bus and plu
 
 ![](images/dialog_import_hardware_definition.png)
 
-The **Device** menu contains an **Import Hardware Definition** submenu which lists all the files that are found in the **Hardware definition library folder** as specified in **Preferences**. The default location of this folder is "Documents\Zynewave Podium\Library\Hardware Definitions". Podium will search this folder during startup.
+The dialog is opened with the **Import Hardware Definition...** command in the **Device** menu on the project page.
 
 Device definition files contain a set of device objects that have been customized for a particular device. This includes mappings, presets and parameters. If you chose to build the default folders the first time you ran Podium, there will be a set of generic device definition files in the hardware definitions folder.
 
-The available definition files in the Podium library are limited, but Podium also supports Cubase patch script files (the version that uses the .txt extension). If you copy your patch script files to the hardware folder then these will show up in the **Import Hardware Definition** submenu the next time you start Podium.
+The available definition files in the Podium library are limited, but Podium also supports Cubase patch script files (the version that uses the .txt extension).
 
-If you select a hardware definition from the submenu, Podium will display the **Import Hardware Definition** dialog. Here you specify how your device is connected to your MIDI and audio interfaces. If you have more than one MIDI input or more than one MIDI output interface enabled, you should select the interface that the device is connected to. Otherwise leave it at the [](#text.option.usedefaultfromfile)**\<Use default setting from file>** setting. You should also leave it at the default setting if you are importing a device that uses virtual MIDI ports such as the Yamaha SW1000XG. Finally select the first channel in the audio interface connections. This will typically be the first channel in a stereo pair. If you don't have either input or output connected to your audio interface, then leave the setting at [](#text.option.notconnected)**\<Not connected>**. Clicking **OK** will import the device definition and adjust the imported mappings to your interface selections.
+The **Import Hardware Definition** dialog is used to specify how your device is connected to your MIDI and audio interfaces. If you have more than one MIDI input or more than one MIDI output interface enabled, you should select the interface that the device is connected to. Otherwise leave it at the [](#text.option.usedefaultfromfile)**\<Use default setting from file>** setting. You should also leave it at the default setting if you are importing a device that uses virtual MIDI ports such as the Yamaha SW1000XG. Finally select the first channel in the audio interface connections. This will typically be the first channel in a stereo pair. If you don't have either input or output connected to your audio interface, then leave the setting at [](#text.option.notconnected)**\<Not connected>**. Clicking **OK** will import the device definition and adjust the imported mappings to your interface selections.
 
 ## <a name="toc.inspectorpage"></a>2.7. Inspector Page
 
@@ -864,7 +861,7 @@ By default only file types that can be imported into the project are shown in th
 
 If you double-click, press Enter or use the **Start Audition** right-click menu command on a sound or MIDI file, Podium will play the file while showing a progress bar. You can drag the sound or MIDI file directly onto the tracks in an arrangement editor, which will import the file as a sound or sequence object under the arrangement object. Alternatively you can use the **Import into Project** right-click menu command to import into the folder currently shown in the object browser address bar.
 
-MIDI file audition is only available if an arrangement is currently powered on. The MIDI file will be played on the focus track, so you will only hear the notes if you have an instrument assigned on that track. Only the first available note sequence in the MIDI file will be auditioned. If the MIDI file contains multiple tracks, you can import it as a new arrangement using the **Import File...** command in the **Content** menu on the project page.
+MIDI file audition is only available if an arrangement is currently powered on. The MIDI file will be played on the focus track, so you will only hear the notes if you have an instrument assigned on that track. Only the first available note sequence in the MIDI file will be auditioned. If the MIDI file contains multiple tracks, you can import it as a new arrangement using the **Import Media...** command in the **Content** menu on the project page.
 
 Files that are linked to the project are marked with pin icons at the left side of the file list. Pins will be placed next to the project file, sound files, and any image files specified in the **Project Properties** dialog. If a folder contains linked files, a dimmed pin icon is shown next to the folder. If there are linked files outside of the address bar folder, a dimmed pin icon will be shown in the address bar.
 
@@ -1039,7 +1036,7 @@ For starters it would be a good exercise to load some of the existing library fi
 
 To create a new library file you should start out with an empty project. Create a new project and remove all default generated objects using the object browser.
 
-To create a definition file for a hardware device, the best approach is to import a Cubase patch script file for the device using the **Import File...** command on the **File** menu (or by pressing Ctrl+I). When you import a Cubase patch script file all presets will be configured correctly. Script files do not contain definitions for parameters, so Podium will create a set of default MIDI controller parameters. You may want to customize the parameters according to the MIDI specification of the device. If you cannot find a script file for the device, the next best approach is to import one of the generic library files and customize the objects.
+To create a definition file for a hardware device, the best approach is to import a Cubase patch script file for the device using the **Import Media...** command on the **File** menu (or by pressing Ctrl+I). When you import a Cubase patch script file all presets will be configured correctly. Script files do not contain definitions for parameters, so Podium will create a set of default MIDI controller parameters. You may want to customize the parameters according to the MIDI specification of the device. If you cannot find a script file for the device, the next best approach is to import one of the generic library files and customize the objects.
 
 To create a definition file for a plugin, select **Import Plugin...** on the **Device** menu and locate the plugin. Podium creates a device mapping and a definition folder for the plugin. If you browse into the definition folder you should see a "Library" folder. Depending on the type of plugin you may also find a "VST Parameters" folder and/or "MIDI Parameters" folder. The "VST Parameters" folder contains preset and parameter objects created from information provided by the plugin. The "MIDI Parameters" folder contains MIDI parameters created by Podium assuming they are supported by the plugin. This is the folder where you create additional MIDI parameters supported by the plugin.
 
@@ -1077,7 +1074,7 @@ The data contained in a library preset consists either of a VST plugin program f
 
 Plugins and external hardware devices hold only a limited number of presets. You may need to store more presets than can be stored in the device. Rather than relying on loading VST bank files in your plugins or using various storage media with your hardware devices, you can opt to store the presets in your project file and have your entire collection of presets instantly available when you need them.
 
-Just as with program presets, library presets need to be placed within the device definition folder for the device, or else they won't be available in the track inspector preset panel. To create library presets by importing preset files: Use the project window to navigate into the proper device definition folder. Optionally create a "Library" subfolder and navigate into it. Use the **Import File...** command on the **File** menu. Set the file dialog filter to All Files (\*.\*) and open the preset files.
+Just as with program presets, library presets need to be placed within the device definition folder for the device, or else they won't be available in the track inspector preset panel. To create library presets by importing preset files: Use the project window to navigate into the proper device definition folder. Optionally create a "Library" subfolder and navigate into it. Use the **Import Media...** command on the **File** menu. Set the file dialog filter to All Files (\*.\*) and open the preset files.
 
 With the two buttons in the **Library Preset Properties** dialog you can import and export the preset files, in case you need to exchange presets with other applications.
 
@@ -1573,7 +1570,7 @@ Double-clicking the field will open the properties dialog for the tempo event th
 
 The first percentage shows how much of the available CPU time is spent waiting for the processing of plugins and audio mixing. The second percentage shows how long the engine is blocked while waiting for sound file streaming. The percentages indicate the time used in relation to the available time period before overload will occur. The percentages do not indicate actual CPU usage.
 
-When overload occurs it can result in gaps in the audio output. If Podium detects an overload the indicator will flash with the overload color (as specified in the current color setup) to alert you that audio processing was interrupted. The overload coloring will stick in the indicator. Click the indicator to reset the overload coloring.
+When overload occurs it can result in gaps in the audio output. If Podium detects an overload the indicator will flash with the overload color (as specified in the current color theme) to alert you that audio processing was interrupted. The overload coloring will stick in the indicator. Click the indicator to reset the overload coloring.
 
 Things to consider when trying to optimize performance:
 
@@ -2224,7 +2221,7 @@ If a sound object references a file that could not be found, the sound object ic
 
 If the sound object is created by importing a sound file then the **Filename** field shows the referenced folder and filename. If the sound object is created as a new object in the project, it initially is not linked to a sound file. When you save the project file, all unsaved sounds are assigned filenames based on the sound object names and are placed in the same folder as the project file. You can also use the sound editor **File** menu to save the sound in any folder and with any filename you desire.
 
-The Podium project file only stores the sound object as a sound file reference. All the settings specified in the sound properties dialog, along with the wave data and any marker events, are stored in the wave file. Thus if you open a project that fails to locate the referenced sound files, the **Sound Properties** dialog will show default values and a red background in the **Filename** field. The **Relink File...** button opens a file dialog which allows you to relink the sound object to a sound file.
+The Podium project file only stores the sound object as a sound file reference. All the settings specified in the sound properties dialog, along with the wave data and any marker events, are stored in the wave file. Thus if you open a project that fails to locate the referenced sound files, the **Sound Properties** dialog will show default values and a red background in the **Filename** field. The **Link File...** button opens a file dialog which allows you to link the sound object to a sound file.
 
 If the sound file is located under the same folder as the project file, then the **Relative to project path** option can be selected. This will store the sound filename with a relative path reference in the project file, which enables you to move the project folder together with the sound files to another folder location without breaking the links to the sound files.
 
@@ -3498,7 +3495,7 @@ When Podium is starting up it will try to load a setup file named "Podium.ini". 
 
 If Podium is not exited properly, "Podium.ini" may become corrupted. This can happen if the computer is powered off while the setup file is being written. The next time Podium is started a corrupt setup file will typically cause the editor windows to be blank because the profiles are missing. If this happens, either use **Load Default Setup** on the **Setup** menu to overwrite "Podium.ini" with the default setup, or use **Load Setup...** if you have saved a backup of your setup file.
 
-If you have put a lot of work into customizing the setup, you should save it to a backup setup file. Use the **Save Complete Setup...** command for this purpose. The **Save Color Setup...** command is used for saving color schemes, which consist only of the settings from the **Colors** dialog.
+If you have put a lot of work into customizing the setup, you should save it to a backup setup file. Use the **Save Setup...** command for this purpose. The **Save Color Theme...** command is used for saving color schemes, which consist only of the settings from the **Colors** dialog.
 
 The load and save commands on the **Setup** menu can also be used to store setups for different occasions. There may be situations where you want to use different configurations of your MIDI and audio interfaces, or you could have setup files for different types of projects and work styles.
 
@@ -3662,7 +3659,7 @@ Podium conforms to the themes and appearance settings in the Windows Display con
 
 Clicking the **...** buttons next to a color opens a standard Windows color dialog where you can define the color. You may be more familiar with colors specified as combinations of red, green, and blue (RGB) values, but colors can also be specified as hue, saturation, and luminance (HSL) values. You can set colors using both these color models in the Windows color dialog. There are value fields for Hue, Sat, and Lum, and the vertical slider next to the color pad controls the luminance as well.
 
-When trying out different color combinations, it is a good idea to use the **Apply** button. This will store the color settings in the current setup, but will keep the **Colors** dialog open. You can then quickly make incremental changes until you have found a color setup to your liking.
+When trying out different color combinations, it is a good idea to use the **Apply** button. This will store the color settings in the current setup, but will keep the **Colors** dialog open. You can then quickly make incremental changes until you have found a color theme to your liking.
 
 Alternatively to using the **Colors** dialog, you can change the colors of interface elements using the context menu on the color picker in the track inspector. See the [color picker](#toc.colorpicker) section for more information.
 
@@ -3692,13 +3689,11 @@ The percentage values set for **Overall color opacity**, **Rack/header/strip opa
 
 Track colors can be further customized using the **Group track luminance** and **Parameter track luminance** offset settings. Track luminance offsets will be applied to the track color of the specified track types. This allows you to define that, for better distinguishability, parameter automation tracks and curve sequence events should be painted with a darker or brighter shade of the track color.
 
-### <a name="toc.colorsetups"></a>7.4.4. Color Setups
+### <a name="toc.colorthemes"></a>7.4.4. Color Themes
 
-Color setups are saved as standard Podium setup files, with the important difference that they only store the settings specified in the **Colors** dialog.
+Color themes are saved as standard Podium setup files, with the important difference that they only store the settings specified in the **Colors** dialog.
 
-Podium includes a number of color setups. Select a color setup using the **Load Color Setup** submenu on the **Setup** menu. You can save your color customizations as a color setup file with the **Save Color Setup...** command.
-
-Color setup files are stored in the "Zynewave\Podium\Color Setups" folder inside the Windows Application Data folder. Choose the **Explore Setup Folder** command on the **Setup** menu to open a Windows file explorer window directed to the setup folder location.
+Podium includes a number of color themes. Select a color theme using the **Load Color Theme...** command on the **Setup** menu. You can save your color customizations as a color theme file with the **Save Color Theme...** command.
 
 ## <a name="toc.favoritefolders"></a>7.5. [](#dialog.favoritefolders)Favorite Folders
 
@@ -3939,7 +3934,7 @@ Podium supports the Mackie control surface standard. This includes full support 
 
 To enable a control surface, the MIDI input/output connections must be activated in the Podium **Interfaces** dialog. Enable the **Detect Mackie compatible control surface** option for each MIDI output that is connected to a control surface. Podium will auto-detect any available control surfaces when you power-on the control surface, when you start Podium, or when you reconfigure the MIDI interfaces. If you connect the MIDI cables after the control surface is powered-on and Podium is running, the auto-detection will not engage. You can then force detection by opening the **Interfaces** dialog and clicking **OK**.
 
-Some control surfaces support uploading new firmware versions via MIDI. To do this with Podium, first disable the **Detect Mackie compatible control surface** option to prevent Podium from activating the control surface. Also make sure that neither **Send Timecode (MTC)**, **Send Timing Clock**, or the MIDI metronome is enabled for the MIDI output. (For information on metronome configuration, see the **[Metronome](#toc.preferences.metronome)** preferences section.) Open the **Device** menu on the project page, point to **Import Hardware Definition** and choose **Generic Effect Device**. Select the MIDI output interface for the control surface in the **Import Hardware Definition** dialog and click **OK**. Use the **Import File...** command in the **Content** menu and select the MIDI file with the firmware update. The imported arrangement should contain a track with one or more stream events. Make sure the 'Generic (01)' MIDI mapping is assigned on the main track. Follow the instructions for your control surface to put it in firmware update mode, and then start playback in Podium to begin the firmware upload.
+Some control surfaces support uploading new firmware versions via MIDI. To do this with Podium, first disable the **Detect Mackie compatible control surface** option to prevent Podium from activating the control surface. Also make sure that neither **Send Timecode (MTC)**, **Send Timing Clock**, or the MIDI metronome is enabled for the MIDI output. (For information on metronome configuration, see the **[Metronome](#toc.preferences.metronome)** preferences section.) Select the **Import Hardware Definition...** command in the **Device** menu on the project page, and choose **Generic Effect Device**. Select the MIDI output interface for the control surface in the **Import Hardware Definition** dialog and click **OK**. Use the **Import Media...** command in the **Content** menu and select the MIDI file with the firmware update. The imported arrangement should contain a track with one or more stream events. Make sure the 'Generic (01)' MIDI mapping is assigned on the main track. Follow the instructions for your control surface to put it in firmware update mode, and then start playback in Podium to begin the firmware upload.
 
 ## <a name="toc.mixerintegration"></a>8.2. Mixer Integration
 
