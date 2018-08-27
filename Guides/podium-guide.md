@@ -168,7 +168,9 @@ This guide is provided "as is" without any warranty of any kind. Zynewave and it
   * [6.4.3. Recording MIDI Parameters](#toc.recordingmidiparameters)
 
 [7. Setup](#toc.setup)
-* [7.1. Setup Files](#toc.setupfiles)
+* [7.1. Files and Folders](#toc.filesandfolders)
+  * [7.1.1. Documents Folder](#toc.documentsfolder)
+  * [7.1.2. Setup Files](#toc.setupfiles)
 * [7.2. Interfaces](#toc.interfaces)
   * [7.2.1. Audio I/O](#toc.interfaces.audio)
   * [7.2.2. MIDI I/O](#toc.interfaces.midi)
@@ -3477,35 +3479,78 @@ When receiving any MIDI messages such as control change, NRPN and SysEx messages
 
 # <a name="toc.setup"></a>7. Setup
 
-The setup options can be reached through the **Setup** menu.
+The **Setup** menu gives you access to various configuration dialogs that each customize different parts of the global Podium setup.
 
-Apart from the data that is stored in project files and any associated wave files, all persistent configurations made in Podium are stored in a single plain text setup file. Podium does not store any information in the Windows registry. Of the information stored in the setup file it is only the settings for the Audio/MIDI interfaces, the mixer engine resolution and the root VST plugin folder that may influence how project files are loaded and played back. This makes it a simple task to copy your project folders to backup media and to port your projects to Podium installations on other PC systems.
+Apart from the data stored in project files and sound files, all user configurable data is stored in a single plain text setup file named "Podium.ini". There are a few additional setup files that mainly functions as caches to improve the performance of Podium.
 
-The **Setup** menu contains five configuration dialogs, covering everything from interface selection to customizing the appearance and behavior of Podium:
+## <a name="toc.filesandfolders"></a>7.1. Files and Folders
 
-*   **[Interfaces](#toc.interfaces)**
-*   **[Preferences](#toc.preferences)**
-*   **[Colors](#toc.colors)**
-*   **[Editor Profiles](#toc.editorprofiles)**
-*   **[Windows](#toc.windows)**
+### <a name="toc.documentsfolder"></a>7.1.1. Documents Folder
 
-## <a name="toc.setupfiles"></a>7.1. Setup Files
+![](images/dialog_documents_folder.png)
 
-When Podium is starting up it will try to load a setup file named "Podium.ini". If the file is not found, Podium creates the file with the default setup. When Podium is exiting it will write the current settings back to "Podium.ini".
+The **Documents Folder** dialog is shown the first time you run Podium on a new PC system. Podium requires a dedicated folder for storing setup files and various other Podium related document files. Having these files contained in a single folder removes risks of conflicts with other files you have in your main Documents folder.
+
+Podium will create a subfolder named "Zynewave Podium" in your main Documents folder with the following content:
+
+*   **Zynewave Podium**
+    *   **Library**
+        *   **Color Themes**: Files with settings from the **Colors** setup dialog.
+        *   **Guides**: Translations of the Podium guide.
+        *   **Hardware Definitions**: Files for use with the **[Import Hardware Definition](#toc.importhardwaredefinition)** dialog.
+        *   **Images**: Texture and wallpaper background images.
+        *   **Note Maps**: Files for use with the **[Note Map](#toc.notemap)** dialog.
+        *   **Presets**: Plugin preset and bank files.
+        *   **Project Templates**: Files for use with the **New Project** page.
+        *   **Setups**: Backup and alternative setup files.
+        *   **Track Templates**: Track templates used in the arrangement editor.
+    *   **Projects**: Root folder for all your projects. Each project is stored in a subfolder that contains the project file along with sound files.
+        *   **WaveformImageCache.db**: Cached overview images of sound file waveforms.
+        *   **ProjectImageCache.db**: Cached screenshot images of the last saved state of each project.
+    *   **PluginDatabase_[platform].pod**: Databases for scanned 32-bit (x86) and 64-bit (x64) VST plugins. The database files will be created once you have done your first scan for VST plugins.
+    *   **PluginQuarantine_[platform].txt**: If Podium encounters plugins that crashes during scanning, this document will list all crashing plugins. Any plugins on the list will be skipped during future plugin scans.
+    *   **Podium.ini**: A text file containing all user configurable options.
+
+The created library folders are used as default paths when you open a file dialog to load and save library content. Podium will remember the folder you browse to when accessing library content, so you are free to reorganize the library folders any way you like.
+
+Podium needs to know the root path of the "Projects", "Project Templates" and "Track Templates" folders. You can configure these folders in the **Preferences** dialog. The Projects folder is continually accessed by Podium when you are working with sound files so if you have multiple drives on your PC system, you will get the best performance by setting up your Projects folder on the fastest/largest drive.
+
+Only a few default library files are created by Podium. Additional content can be downloaded from the [Podium Library](https://github.com/zynewave/podium-library) repository page on github.com. You can download individual files or a zip file of the entire library. You are also able to contribute content to the library on the GitHub page.
+
+The document folder is not affected if you uninstall Podium. You do not lose setup files or any other files you have saved in Podium if you uninstall or install a newer version of Podium.
+
+_Tip:_ If you have upgraded an older Podium installation then your Podium documents folder may look different than the one described above. You can get the new default folder contents by renaming your current "Zynewave Podium" folder to something that doesn't have the word Podium in its name. When you then start Podium you will get the option to create a new documents folder. After that you can move your files over from your old folder to the new "Zynewave Podium" folder.
+
+### <a name="toc.setupfiles"></a>7.1.2. Setup Files
+
+When Podium is starting up it will try to load the "Podium.ini" setup file which contains all user configurable settings. Podium will look for "Podium.ini" in the following folders, ordered by priority:
+
+*   Current directory. The current directoy can be specified in the properties for the Podium desktop icon.
+*   Folder where Podium.exe is run from. Relevant if you are running Podium from a portable drive.
+*   "C:\Documents and Settings\[user]\Application Data\Zynewave\Podium". This folder is checked for compatibility with older Podium installations. As of Podium version 3.3 this folder is no longer created by the installer and all setup files are now stored in the Podium documents folder instead.
+*   A subfolder named "Zynewave Podium" in the users main Documents folder.
+*   The users main Documents folder.
+*   A subfolder containing the word "Podium" in the users main Documents folder.
+
+If "Podium.ini" is not found, Podium will create the file with defaults. When Podium is exiting it will write the current settings back to "Podium.ini".
 
 If Podium is not exited properly, "Podium.ini" may become corrupted. This can happen if the computer is powered off while the setup file is being written. The next time Podium is started a corrupt setup file will typically cause the editor windows to be blank because the profiles are missing. If this happens, either use **Load Default Setup** on the **Setup** menu to overwrite "Podium.ini" with the default setup, or use **Load Setup...** if you have saved a backup of your setup file.
 
-If you have put a lot of work into customizing the setup, you should save it to a backup setup file. Use the **Save Setup...** command for this purpose. The **Save Color Theme...** command is used for saving color schemes, which consist only of the settings from the **Colors** dialog.
+If you have put a lot of work into customizing the setup, you should save it to a backup setup file. Use the **Save Setup...** command for this purpose. The **Save Color Theme...** command is used for saving color setup files, which consist only of the settings from the **Colors** dialog.
 
 The load and save commands on the **Setup** menu can also be used to store setups for different occasions. There may be situations where you want to use different configurations of your MIDI and audio interfaces, or you could have setup files for different types of projects and work styles.
 
-The Podium setup files are stored under the Windows managed application data folder. If you have a multi-user Windows installation, each user will have their own personal application data folder. For newer Windows versions using English, the setup folder is in the following location (substitute [user] with your user name):
+#### Using Multiple Setups
 
-"C:\Documents and Settings\[user]\Application Data\Zynewave\Podium"
+If you have a need to use Podium with different setups then you can do so by creating a new folder for the alternative setup and copy the "Podium.ini" file into this folder. Then you create a copy of the Podium desktop icon and enter the path to the folder containing the Podium.ini file into the **Start in** field in the properties for the copied desktop icon. Finally rename the desktop icon and give it a name that hints to the purpose of the alternative setup.
 
-If you use a Windows file explorer to locate this folder you may not be able to see the application data folder in the file list if you have the **Do not show hidden files and folders** option selected in the Explorer **Folder Options** dialog. You can still access the folder by entering the folder name directly in the Address bar.
+#### Portable Drive Setup
 
-Any setup files you save to the application data folder, including "Podium.ini", will remain if you uninstall Podium. You do not lose your setup if you uninstall or install a newer version of Podium.
+Sometimes you may need to work with Podium on multiple PC systems where you don't have the option to install Podium on each PC. In those cases you can run Podium from a portable drive. To create such a setup, first copy your Zynewave Podium documents folder onto the portable drive. Then find the Podium.exe file on your PC system where you have your main Podium installation, and copy it into the same Zynewave Podium documents folder on the portable drive. The installed Podium.exe can be found in the "C:\Program Files\Zynewave\Podium" folder.
+
+#### Running Beta Versions
+
+Zynewave sometimes makes Podium beta versions available for download so that users can test and provide feedback on new features. These beta downloads are only contain the Podium exe files. To run these beta versions just copy the exe files into the Zynewave Podium documents folder (the same folder where Podium.ini is located). Running the beta version from there will use the same setup and project files that your installed Podium release uses.
 
 ## <a name="toc.interfaces"></a>7.2. [](#dialog.interfaces)Interfaces
 
