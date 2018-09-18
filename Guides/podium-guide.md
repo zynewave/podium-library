@@ -452,11 +452,7 @@ Project templates can be used for two purposes:
 *   You can select a project template in the **Project option** selector menu on the **New Project** page. Selecting a template will hide the options for plugins and arrangements, as they are already configured in the template. As an example, you could have templates for studio recording, live recording, mastering, rock, orchestral, etc.
 *   You can change the plugin setup in an existing project with the **Load Plugin Setup from Template** submenu of the **Device** menu on the project page. As an example, you could have templates where the plugins are sorted by plugin developer or by plugin category.
 
-When you have created a project that you want to use as a project template, you save the template with the **Save Project as Template** command in the **File** menu. This will open the **New Project Template** dialog where you can enter a name for the template.
-
-![](images/dialog_new_project_template.png)
-
-The project template file is saved in the **Project template library folder** as specified in **Preferences**. If a template file already exists with the name you entered, Podium will ask if you want to overwrite it.
+When you have created a project that you want to use as a project template, you save the template with the **Save Project as Template...** command in the **File** menu.
 
 You can organize your template files with a Windows file explorer. You can rename or delete template files, or organize the files into subfolders. Template subfolders are shown as submenus when you open a menu that lists the project templates. After you have reorganized files in the template folder you need to restart Podium to update the template list shown in the Podium menus.
 
@@ -633,7 +629,7 @@ Press Alt+F to open the [](#project.filemenu.label)**File** menu.
 *   [](#cmd.project.file.mergeproject)**&Merge Project...**: Opens a file dialog for selecting a project to be merged into the current project. The merge project file is not modified. Arrangements imported from the merge project are modified to use matching devices found in the current project. Device objects in the merge project are imported as well, if matching devices are not already found in the current project.
 *   [](#cmd.project.file.saveproject)**&Save Project**: Saves the project, but does not save any edited sounds. Saving sound files can take a long time, so use this command if you only want to save your project changes.
 *   [](#cmd.project.file.saveprojectas)**Save Project &As...**: Opens a file dialog for saving the project to another filename. The project will be renamed to the new filename, and following project save commands will save to the new filename. Use this command if you want to keep backup copies of older revisions of your project.
-*   [](#cmd.project.file.saveprojecttemplate)**Save Project as Template...**: Opens the **New Project Template** dialog where you can enter a name for the template. A project template can be used for creating new projects or for changing device setups in an existing project.
+*   [](#cmd.project.file.saveprojecttemplate)**Save Project as Template...**: Opens a file dialog dialog for saving the template. A project template can be used for creating new projects or for changing device setups in an existing project.
 *   [](#cmd.project.file.deleteproject)**Delete Project**: Closes the project and deletes all related project and sound files.
 *   [](#cmd.project.file.exploreprojectfolder)**Explore Project Folder**: Opens a Windows file explorer for the current project folder.
 *   [](#cmd.project.file.closeproject)**&Close Project**: Closes the project.
@@ -1709,6 +1705,7 @@ Press Alt+T to open the [](#editor.trackmenu.label)**Track** menu.
 *   [](#cmd.track.saveeffecttemplate)**Save Effect Track as Template...**: Saves the selected effect track as a template for new tracks.
 *   [](#cmd.track.savechaintemplate)**Save Effect Chain as Template...**: Saves the selected track chain as a template for new tracks.
 *   [](#cmd.track.savetracktemplate)**Save Track as Template...**: Saves the selected track as a template for new tracks.
+*   [](#cmd.track.savetrackandeventstemplate)**Save Track and Events as Template...**: Saves the selected track and any timeline events on the track as a template for new tracks.
 *   [](#cmd.track.savecomptemplate)**Save Composite Track as Template...**: Saves the selected composite track as a template for new tracks.
 *   [](#cmd.track.savegrouptemplate)**Save Group Track as Template...**: Saves the selected group track as a template for new tracks.
 *   [](#cmd.track.exploretemplatefolder)**Explore Templates Folder**: Opens Windows Explorer for the track templates folder.
@@ -2815,11 +2812,9 @@ _Tip:_ The track panel in the inspector provides controls for quick access to th
 
 Track templates can reduce repetitive work by allowing you to store tracks complete with all track properties, device object assignments, and plugin presets. Sound events, sequences, and automation data present on a track may also be included in a template. A new track created from a track template can be edited like any other track in the arrangement, as it is a unique track and not connected to the template.
 
-To create a template from a track, open the **Track** menu by clicking the **Track** button on the toolbar, or right-clicking the track header, and choose **Save Track As Template...** (**Save Group Track As Template...** for group tracks) from the **Templates** submenu. This will open the **New Track Template** dialog, in which you can edit the name for the new template, and choose whether sounds and sequences present on the track should be included in the template, by enabling **Copy track timeline events to the template**.
+To create a template from a track, open the **Track** menu by clicking the **Track** button on the toolbar, or right-clicking the track header, and choose **Save Track As Template...** from the **Templates** submenu.
 
 Effect chains can be saved as a template by choosing **Save Effect Chain As Template...** from the **Templates** submenu on the track context menu. A single effect track can be saved as a template by right-clicking it and selecting **Save Effect Track As Template...** from the **Templates** submenu.
-
-![](images/dialog_new_track_template.png)
 
 A track can be created from a template by any of the following ways:
 
@@ -4370,7 +4365,7 @@ Alt+Plus/Minus | Adjust tangent slope of single selected spline event.
 
 The purpose of this appendix is to provide translation of common Podium UI texts that do not belong to specific chapters in this guide.
 
-#### Dialog Buttons:
+#### Dialog Buttons
 
 *   [](#button.ok)**&OK**
 *   [](#button.cancel)**&Cancel**
@@ -4381,14 +4376,55 @@ The purpose of this appendix is to provide translation of common Podium UI texts
 *   [](#button.close)**&Close**
 *   [](#button.help)**&Help**
 
-#### Dialog Value Units:
+#### Dialog Value Units
 
 *   [](#unit.decibel1)**dB** [](#unit.decibel2)**dB**
 *   [](#unit.milliseconds1)**ms**
 *   [](#unit.percentage1)**%**
 *   [](#unit.pixels1)**pixels** [](#unit.pixels2)**pixels** [](#unit.pixels3)**pixels** [](#unit.pixels4)**pixels**
 
-#### Option Texts:
+#### File Dialog Titles
+
+*   [](#title.filedialog.openproject)**Open Project**
+*   [](#title.filedialog.saveproject)**Save Project '{}'**
+*   [](#title.filedialog.saveprojecttemplate)**Save Project Template '{}'**
+*   [](#title.filedialog.savetracktemplate)**Save Track Template '{}'**
+*   [](#title.filedialog.savesound)**Save Sound '{}'**
+*   [](#title.filedialog.importmedia)**Import Media**
+*   [](#title.filedialog.exportsound)**Export '{}' to Sound File**
+*   [](#title.filedialog.exportmidi)**Export '{}' to MIDI File**
+*   [](#title.filedialog.linksound)**Link Sound '{}'**
+*   [](#title.filedialog.importplugin)**Import Plugin**
+*   [](#title.filedialog.linkplugin)**Link Plugin**
+*   [](#title.filedialog.importhardware)**Import Hardware Definition**
+*   [](#title.filedialog.loadpluginpreset)**Load VST Plugin Preset**
+*   [](#title.filedialog.savepluginpreset)**Save VST Plugin Preset**
+*   [](#title.filedialog.loadsysex)**Load MIDI Sysex Message**
+*   [](#title.filedialog.savesysex)**Save MIDI Sysex Message**
+*   [](#title.filedialog.loadsetup)**Load Setup**
+*   [](#title.filedialog.savesetup)**Save Setup**
+*   [](#title.filedialog.loadcolortheme)**Load Color Theme**
+*   [](#title.filedialog.savecolortheme)**Save Color Theme**
+*   [](#title.filedialog.loadnotemap)**Load Note Map**
+*   [](#title.filedialog.savenotemap)**Save Note Map**
+*   [](#title.filedialog.loadimage)**Load Image**
+*   [](#title.filedialog.loadguide)**Load Podium Guide**
+*   [](#title.filedialog.savereport)**Save Report**
+
+#### Folder Dialog Titles
+
+*   [](#title.folderdialog.browserroot)**File Browser Root Folder**
+*   [](#title.folderdialog.projectroot)**Project Root Folder**
+*   [](#title.folderdialog.projecttemplateroot)**Project Template Root Folder**
+*   [](#title.folderdialog.tracktemplateroot)**Track Template Root Folder**
+*   [](#title.folderdialog.cache)**Sound File Cache Folder**
+*   [](#title.folderdialog.metronome)**Metronome Sound File Folder**
+*   [](#title.folderdialog.pluginscan)**VST Plugin Scan Folder**
+*   [](#title.folderdialog.pluginimport)**VST Plugin Import Folder**
+*   [](#title.folderdialog.pluginsearch)**VST Plugin Search Folder**
+*   [](#title.folderdialog.soundsearch)**Sound File Search Folder**
+
+#### Option Texts
 
 These texts are surrounded by \<> (angle brackets) to distinguish them from the names of other option values.
 
@@ -4396,6 +4432,138 @@ These texts are surrounded by \<> (angle brackets) to distinguish them from the 
 *   [](#text.option.empty)**\<Empty>**
 *   [](#text.option.noname)**\<No name>**
 *   [](#text.option.notsaved)**\<Not saved>**
+
+#### Project Names
+
+*   [](#text.project.project)**Project**
+*   [](#text.project.newproject)**New project**
+
+#### Folder Names
+
+*   [](#text.folder.newfolder)**New folder**
+*   [](#text.folder.devices)**Devices**
+*   [](#text.folder.audioinputs)**Audio Inputs**
+*   [](#text.folder.audiooutputs)**Audio Outputs**
+*   [](#text.folder.midiinputs)**MIDI Inputs**
+*   [](#text.folder.midioutputs)**MIDI Outputs**
+*   [](#text.folder.busses)**Busses**
+*   [](#text.folder.vstparameters)**VST Parameters**
+*   [](#text.folder.midi)**MIDI**
+*   [](#text.folder.midiprograms)**MIDI Programs**
+*   [](#text.folder.midiparameters)**MIDI Parameters**
+*   [](#text.folder.programs)**Programs**
+*   [](#text.folder.parameters)**Parameters**
+*   [](#text.folder.polypressure)**Poly Pressure**
+*   [](#text.folder.controlchange)**Control Change**
+*   [](#text.folder.library)**Library**
+
+#### Sequence Names
+
+*   [](#text.sequence.sequence)**Sequence**
+*   [](#text.sequence.newsequence)**New sequence**
+
+#### Arrangement Names
+
+*   [](#text.arrangement.arrangement)**Arrangement**
+*   [](#text.arrangement.newarrangement)**New arrangement**
+*   [](#text.arrangement.template)**Template**
+
+#### Sound Names
+
+*   [](#text.sound.sound)**Sound**
+*   [](#text.sound.newsound)**New sound**
+
+#### Device Definition Names
+
+*   [](#text.devicedef.newdevicedef)**New device definition**
+*   [](#text.devicedef.audioparameters)**Audio Parameters**
+*   [](#text.devicedef.genericmididef)**Generic MIDI Definition**
+
+#### Device Mapping Names
+
+*   [](#text.devicemap.newdevicemap)**New device mapping**
+*   [](#text.devicemap.send)**Send**
+*   [](#text.devicemap.return)**Return**
+*   [](#text.devicemap.mono)**Mono**
+*   [](#text.devicemap.monol)**Mono L**
+*   [](#text.devicemap.monor)**Mono R**
+*   [](#text.devicemap.stereo)**Stereo**
+*   [](#text.devicemap.audioin)**Audio In**
+*   [](#text.devicemap.audioout)**Audio Out**
+*   [](#text.devicemap.midiin)**MIDI In**
+*   [](#text.devicemap.midiout)**MIDI Out**
+
+#### Preset Names
+
+*   [](#text.preset.newpreset)**New preset**
+*   [](#text.preset.bank)**Bank**
+*   [](#text.preset.program)**Program**
+
+#### Parameter Names
+
+MIDI CC numbers not listed here will get the default "CC {number}" name.
+
+*   [](#text.param.newparameter)**New parameter**
+*   [](#text.param.level)**Level**
+*   [](#text.param.pan)**Pan**
+*   [](#text.param.send)**Send**
+*   [](#text.param.programchange)**Program Change**
+*   [](#text.param.sysex)**SysEx**
+*   [](#text.param.pitchbend)**Pitch Bend**
+*   [](#text.param.channelpressure)**Channel Pressure**
+*   [](#text.param.polypressure)**Poly Pressure**
+*   [](#text.param.cc)**CC**
+*   [](#text.param.cc0)**Bank Select MSB**
+*   [](#text.param.cc1)**Modulation**
+*   [](#text.param.cc2)**Breath Controller**
+*   [](#text.param.cc4)**Foot Controller**
+*   [](#text.param.cc5)**Portamento Time**
+*   [](#text.param.cc6)**Data Entry MSB**
+*   [](#text.param.cc7)**Volume**
+*   [](#text.param.cc8)**Balance**
+*   [](#text.param.cc10)**Pan**
+*   [](#text.param.cc11)**Expression**
+*   [](#text.param.cc32)**Bank Select LSB**
+*   [](#text.param.cc33)**Modulation LSB**
+*   [](#text.param.cc34)**Breath Controller LSB**
+*   [](#text.param.cc36)**Foot Controller LSB**
+*   [](#text.param.cc37)**Portamento Time LSB**
+*   [](#text.param.cc38)**Data Entry LSB**
+*   [](#text.param.cc39)**Volume LSB**
+*   [](#text.param.cc40)**Balance LSB**
+*   [](#text.param.cc42)**Pan LSB**
+*   [](#text.param.cc43)**Expression LSB**
+*   [](#text.param.cc64)**Sustain Pedal**
+*   [](#text.param.cc65)**Portamento On/Off**
+*   [](#text.param.cc66)**Sostenuto Pedal**
+*   [](#text.param.cc67)**Soft Pedal**
+*   [](#text.param.cc68)**Legato Pedal**
+*   [](#text.param.cc69)**Hold 2 Pedal**
+*   [](#text.param.cc96)**Data Increment**
+*   [](#text.param.cc97)**Data Decrement**
+*   [](#text.param.cc98)**NRPN LSB**
+*   [](#text.param.cc99)**NRPN MSB**
+*   [](#text.param.cc100)**RPN LSB**
+*   [](#text.param.cc101)**RPN MSB**
+*   [](#text.param.cc120)**All Sound Off**
+*   [](#text.param.cc121)**Reset All Controllers**
+*   [](#text.param.cc122)**Local On/Off**
+*   [](#text.param.cc123)**All Notes Off**
+*   [](#text.param.cc124)**Omni Mode Off**
+*   [](#text.param.cc125)**Omni Mode On**
+*   [](#text.param.cc126)**Mono Mode**
+*   [](#text.param.cc127)**Poly Mode**
+
+#### Track Names
+
+*   [](#text.track.track)**Track**
+*   [](#text.track.newtrack)**New track**
+*   [](#text.track.master)**Master**
+*   [](#text.track.masteroutput)**Master Output**
+*   [](#text.track.busfx)**\<Bus FX>**
+*   [](#text.track.tagmaster)**Master**
+*   [](#text.track.tagbusses)**Busses**
+*   [](#text.track.tagtracks)**Tracks**
 
 * * *
 
