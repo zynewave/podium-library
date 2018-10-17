@@ -2,7 +2,7 @@
 
 # <a name="podiumguide"></a>Podium Guide
 
-Last updated: August 19, 2018  
+Last updated: October 17, 2018  
 Copyright © Zynewave  
 [zynewave.com](https://zynewave.com/)
 
