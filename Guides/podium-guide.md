@@ -2,7 +2,7 @@
 
 # <a name="podiumguide"></a>Podium Guide
 
-Last updated: October 17, 2018  
+Last updated: March 26, 2019  
 Copyright © Zynewave  
 [zynewave.com](https://zynewave.com/)
 
@@ -38,15 +38,16 @@ This guide is provided "as is" without any warranty of any kind. Zynewave and it
   * [2.5.1. File Menu](#toc.start.filemenu)
   * [2.5.2. View Menu](#toc.start.viewmenu)
 * [2.6. Project Page](#toc.projectpage)
-  * [2.6.1. New Project Panel](#toc.newprojectpanel)
-  * [2.6.2. File Menu](#toc.project.filemenu)
-  * [2.6.3. Content Panel](#toc.contentpanel)
-  * [2.6.4. Content Menu](#toc.contentmenu)
-  * [2.6.5. Content List Menu](#toc.contentlistmenu)
-  * [2.6.6. Device Panel](#toc.devicepanel)
-  * [2.6.7. Device Menu](#toc.devicemenu)
-  * [2.6.8. Device List Menu](#toc.devicelistmenu)
-  * [2.6.9. Import Hardware Definition](#toc.importhardwaredefinition)
+  * [2.6.1. Plugin Database Panel](#toc.plugindatabasepanel)
+  * [2.6.2. New Project Panel](#toc.newprojectpanel)
+  * [2.6.3. File Menu](#toc.project.filemenu)
+  * [2.6.4. Content Panel](#toc.contentpanel)
+  * [2.6.5. Content Menu](#toc.contentmenu)
+  * [2.6.6. Content List Menu](#toc.contentlistmenu)
+  * [2.6.7. Device Panel](#toc.devicepanel)
+  * [2.6.8. Device Menu](#toc.devicemenu)
+  * [2.6.9. Device List Menu](#toc.devicelistmenu)
+  * [2.6.10. Import Hardware Definition](#toc.importhardwaredefinition)
 * [2.7. Inspector Page](#toc.inspectorpage)
 * [2.8. Browser Page](#toc.browserpage)
   * [2.8.1. Browser Options Menu](#toc.browseroptionsmenu)
@@ -294,9 +295,7 @@ Click the **Edit project name** button to open the **[Project Properties](#toc.p
 
 The first time you create a project you will need to configure your audio and MIDI interfaces and your VST plugin folders. These configurations are stored in the Podium setup folder and will be remembered the next time you create a new project. Only if you have made changes to your interfaces and plugin installations will you then need to change these settings.
 
-Click the **Configure audio** button to open the **Audio I/O** page in the **[Interfaces](#toc.interfaces.audio)** dialog. It is highly recommended that you select an ASIO audio driver to get the best low-latency performance. If your audio interface does not come with a dedicated ASIO driver, you can install the ASIO4ALL driver, which is available as a free download from [asio4all.org](http://asio4all.org/) website. Click OK to apply the changes. The **Enabled audio inputs** and **Enabled audio outputs** fields display the currently active audio interface and audio channels.
-
-Click the **Configure MIDI** button to open the **MIDI I/O** page in the **Interfaces** dialog, and select the checkbox next to any MIDI interfaces you want to use with Podium.
+Click the **Configure interfaces** button to open the **[Interfaces](#toc.interfaces.audio)** dialog. In this dialog you set up the audio and MIDI interfaces that you want to use with Podium. It is highly recommended that you select an ASIO audio driver to get the best low-latency performance. If your audio interface does not come with a dedicated ASIO driver, you can install the ASIO4ALL driver, which is available as a free download from [asio4all.org](http://asio4all.org/) website. Click OK to apply the changes. The **Enabled audio inputs** and **Enabled audio outputs** fields display the currently active audio interface and audio channels.
 
 If the plugin option selector is set to **Build and load plugin database** the project creation will perform a VST plugin scan and build a plugin database. The **VST plugin scan folders** field shows all configured VST plugin folders. If Podium hasn't automatically detected all your plugin folders, then click the **Configure plugin folders** button to open the **Plugins** page in the **[Preferences](#toc.preferences.plugins)** dialog. Here you can browse for the folders where you have installed your VST plugins. You only need to specify the main plugin folder. Podium will automatically scan any subfolders.
 
@@ -499,13 +498,14 @@ Press Alt+P to open the [](#app.podiummenu.label)**Podium** menu.
 Press Alt+S to open the [](#app.setupmenu.label)**Setup** menu.
 
 *   [](#cmd.setup.resetmidi)**&Reset MIDI Devices**: Sends note and controller reset messages to all connected external MIDI devices. Use this to stop notes which may have become stuck due to glitches in the MIDI communication.
+*   [](#cmd.setup.plugindatabase)**Plugin &Database**: Opens the plugin database project.
 *   [](#cmd.setup.interfaces)**&Interfaces...**: Opens the **[Interfaces](#toc.interfaces)** dialog.
 *   [](#cmd.setup.preferences)**&Preferences...**: Opens the **[Preferences](#toc.preferences)** dialog where you configure global application options.
 *   [](#cmd.setup.colors)**&Colors...**: Opens the **[Colors](#toc.colors)** dialog where you configure all the color settings that are saved to color theme files.
 *   [](#cmd.setup.favorites)**&Favorite Folders...**: Opens the **[Favorite Folders](#toc.favoritefolders)** dialog where you configure the folders that will appear as favorite shortcuts in the Podium browsers.
 *   [](#cmd.setup.profiles)**&Editor Profiles...**: Opens the **[Editor Profiles](#toc.editorprofiles)** dialog where you configure all the different types of editor profiles.
 *   [](#cmd.setup.windows)**&Windows...**: Opens the **[Windows](#toc.windows)** dialog where you can manage all created windows and their assignment to different virtual screens.
-*   [](#cmd.setup.restoredefault)**Restore &Default Setup**: Deletes the current setup and replaces it with the default setup.
+*   [](#cmd.setup.restoredefault)**Restore Default Setup**: Deletes the current setup and replaces it with the default setup.
 *   [](#cmd.setup.restoredefaultprofiles)**Restore Default Editor Profiles**: Replaces the current editor profiles with the editor profiles from the default setup.
 *   [](#cmd.setup.loadcolor)**Load Color Theme...**: Opens a file dialog where you can load a color theme.
 *   [](#cmd.setup.savecolor)**Save Color Theme...**: Opens a file dialog where you can save the current color theme to a [color theme file](#toc.colorthemes).
@@ -597,31 +597,38 @@ The project page presents an organized view of the project contents and devices.
 
 When you start on a new project, the project page shows the **New Project** panel. When a project is loaded, the project page shows the **Content** and **Device** panels.
 
-### <a name="toc.newprojectpanel"></a>2.6.1 [](#newproject.panel)New Project Panel
+### <a name="toc.plugindatabasepanel"></a>2.6.1 [](#plugindatabase.panel)Plugin Database Panel
 
-The [](#newproject.title)**New Project** panel contains information and controls for setting up the type of project you want to create.
+The [](#plugindatabase.title)**Plugin Database** panel contains information and controls for setting up the plugin database.
+
+*   [](#plugindatabase.date.label)**Last update:** The date and time of when the database was last updated and saved.
+*   [](#plugindatabase.path.label)**File path:** The full file path of the plugin database.
+*   [](#plugindatabase.pluginfolder.label)**VST plugin scan folders:** List of scan folders.
+*   [](#plugindatabase.folderconfig)**Configure folders...**: Opens the preferences dialog where you can set up your VST plugin scan folders. These folders and any subfolders will be scanned for VST plugins when you press the **Scan** button.
+*   [](#plugindatabase.reset)**Reset database**: Podium will ask if you want to erase the contents of the database. Use this if you want to do a clean scan for all your plugin files and not just for new plugin files.
+*   [](#plugindatabase.scan)**Scan**: A plugin scanning progress dialog will appear. Scanning will skip any plugin files that are already in the database.
+*   [](#plugindatabase.close)**Close**: Closes the plugin database project page. If you have made changes to the database Podium will ask if you want to save the changes. If you have updated the database you can load it into your existing projects with the **Device** menu on the project page.
+
+### <a name="toc.newprojectpanel"></a>2.6.2 [](#newproject.panel)New Project Panel
+
+The [](#newproject.title)**New Project** panel contains information and controls for setting up the project you want to create.
 
 *   [](#newproject.option)**Project option**:
     *   [](#newproject.option.stereo)**New stereo project**: Creates mono/stereo mappings for I/O and plugins.
-    *   [](#newproject.option.surround)**New surround project**: Creates surround mappings for I/O and plugins. I/O mappings will only be created for surround configurations that fit within the number of audio interface channels that you enable with the **Configure audio** button.
+    *   [](#newproject.option.surround)**New surround project**: Creates surround mappings for I/O and plugins. I/O mappings will only be created for surround configurations that fit within the number of audio interface channels that you enable with the **Configure interfaces** button.
     *   [](#newproject.option.stereosurround)**New stereo and surround project**: Creates both stereo and surround mappings (see descriptions above).
-    *   [](#newproject.option.templates)**Project Templates:** If you previously have saved project templates then this option will appear followed by the list of your templates. You can save project templates using the **File** menu on a project page. If you select a template, then the plugin and arrangement options are removed, since the configuration of these are already contained in the project template.
-*   [](#newproject.name.button)**Edit project name**: Opens the **[Project Properties](#toc.projectproperties)** dialog where you can enter the project name. The project name will be used to create a new file folder when you save the project for the first time. The project folder will be placed in the **New projects folder** location specified in the **[Preferences dialog](#toc.preferences.projects)**. In the Podium default setup this folder location is "Documents\Zynewave Podium\Projects". The full file path of the new project file is shown beneath the [](#newproject.name.label)**Project name:** label.
-*   [](#newproject.audioconfig)**Configure audio**: Opens the interfaces dialog where you can select all the audio inputs and outputs that you want to use. When a new project is created a set of device mappings will be created for all selected channels.
-*   [](#newproject.midiconfig)**Configure MIDI**: Opens the interfaces dialog where you can select all the MIDI inputs and outputs that you want to use. When a new project is created a set of device mappings will be created for all selected interfaces.
-*   [](#newproject.pluginoption)**Plugin option**:
-    *   [](#newproject.pluginoption.none)**Don't load plugins**: Create the project without plugin mappings.
-    *   [](#newproject.pluginoption.load)**Load plugin database**: Load plugin mappings from the plugin database. If you haven't changed your plugin installations since the last database update then this option skips the time consuming process of scanning for plugin files. Only plugins that are compatible with the selected stereo/surround project option will be loaded from the database.
-    *   [](#newproject.pluginoption.buildload)**Build and load plugin database**: Build a plugin database by scanning for VST plugins in the configured VST plugin scan folders. The database is stored in the Podium setup folder.
-    *   [](#newproject.pluginoption.updateload)**Update and load plugin database**: Updates the existing plugin database with any new VST plugins you may have installed. New plugins are added to the end of the plugin list in the database.
-*   [](#newproject.pluginconfig)**Configure plugin folders**: Opens the preferences dialog where you can set up your VST plugin scan folders. These folders and any subfolders will be scanned for VST plugins when the project is created. All the configured scan folders are shown beneath the [](#newproject.pluginfolder.label)**VST plugin scan folders:** label.
-*   [](#newproject.arroption)**Arrangement option**:
-    *   [](#newproject.arroption.none)**Don't create a new arrangement**: Create the project with no initial arrangements. You can manually create new arrangements using the contents panel that will appear once the project is created.
-    *   [](#newproject.arroption.create)**Create a new arrangement**: Create the project with a default initialized arrangement. The arrangement name will be set to the name you enter for the project. If the word "project" is found in the name it will be replaced with "arrangement". The arrangement editor will be opened after the project is created.
-    *   [](#newproject.arroption.dialog)**Open properties dialog for a new arrangement**: Opens the properties dialog for a new arrangement when the project is created.
-*   [](#newproject.create)**Create project**: Creates the project based on your selections on this page. A plugin scanning progress dialog will appear if you selected to build or update the plugin database. If you later on change your interface or plugin configurations you can update these in your existing projects using the **Device** panel on the project page.
+    *   [](#newproject.option.templates)**Project Templates:** If you previously have saved project templates then this option will appear followed by the list of your templates. You can save project templates using the **File** menu on a project page.
+*   [](#newproject.name.label)**Project name:** The name of the project.
+*   [](#newproject.path.label)**File path:** The full file path of the project file that will be created.
+*   [](#newproject.name.button)**Edit project name...**: Opens the **[Project Properties](#toc.projectproperties)** dialog where you can enter the project name. The project name will be used to create a new file folder when you save the project for the first time. The project folder will be placed in the **New projects folder** location specified in the **[Preferences dialog](#toc.preferences.projects)**.
+*   [](#newproject.audioin.label)**Enabled audio inputs:** List of enabled audio inputs.
+*   [](#newproject.audioout.label)**Enabled audio outputs:** List of enabled audio outputs.
+*   [](#newproject.midiin.label)**Enabled MIDI inputs:** List of enabled MIDI inputs.
+*   [](#newproject.midiout.label)**Enabled MIDI outputs:** List of enabled MIDI outputs.
+*   [](#newproject.interfaceconfig)**Configure interfaces...**: Opens the interfaces dialog where you can select all the audio and MIDI inputs and outputs that you want to use. When a new project is created a set of device mappings will be created for all selected interfaces and channels.
+*   [](#newproject.create)**Create project**: Creates the project based on your selections on this page. The plugin database will automatically be loaded into the project. If you later on change your interface or plugin configurations you can update these in your existing projects using the **Device** menu on the project page.
 
-### <a name="toc.project.filemenu"></a>2.6.2. [](#project.filemenu)File Menu
+### <a name="toc.project.filemenu"></a>2.6.3. [](#project.filemenu)File Menu
 
 Press Alt+F to open the [](#project.filemenu.label)**File** menu.
 
@@ -634,19 +641,19 @@ Press Alt+F to open the [](#project.filemenu.label)**File** menu.
 *   [](#cmd.project.file.exploreprojectfolder)**Explore Project Folder**: Opens a Windows file explorer for the current project folder.
 *   [](#cmd.project.file.closeproject)**&Close Project**: Closes the project.
 
-### <a name="toc.projectinfopanel"></a>2.6.2. Project Info Panel
+### <a name="toc.projectinfopanel"></a>2.6.3. Project Info Panel
 
 The info panel at the upper left corner shows information for the current project. The panel has buttons for opening the **Project Properties** dialog and the project stickie note window.
 
 If the project is saved, the full file path is shown. If the project has not been saved yet, the **New file** line shows the folder and filename that will be used when you save the project for the first time. If you change the project name in the **Project Properties** dialog before saving, then the new folder and filename will be updated accordingly. If a folder already exists with the project name, then "_01" (or a higher number) is appended to the folder name. Once the project is saved, the project name is the same as the project filename. You can change the project name by renaming the project file.
 
-### <a name="toc.recentprojectspanel"></a>2.6.2. Recent Projects Panel
+### <a name="toc.recentprojectspanel"></a>2.6.3. Recent Projects Panel
 
 Below the project info panel is the **Recent Projects** panel. This shows a list of previously opened project files sorted with the most recently opened project at the top. The info panel at the bottom shows file information for the currently selected project in the list.
 
 Double-click a project in the list or press the Enter key to load the selected project. If your current project is not saved, Podium will ask if you want to save the changes before loading the new project. Once a project is loaded it will move to the top of the recent project list. You can remove a project from the list using the **Remove Project** right-click menu command or by pressing the Delete key.
 
-### <a name="toc.contentpanel"></a>2.6.3. [](#project.contentpanel)Content Panel
+### <a name="toc.contentpanel"></a>2.6.4. [](#project.contentpanel)Content Panel
 
 The content list shows all arrangements and sounds in the project. New content can be created or imported using the **Content** menu and the list right-click menu.
 
@@ -654,7 +661,7 @@ If you prefer to have one file for each arrangement you work on, you can choose 
 
 If after loading a project you see a sound that has a red icon in the list, it indicates a "missing" sound, meaning that the linked sound file could not be loaded. This can happen if you have moved the sound file or have renamed file folders. To relink missing sounds to their sound files you can select one or more missing sounds in the list, right-click the selection and use the **Search for Missing Sounds in Folder...** command. Podium will search for the missing files in the folder you specify. Note that this method will not work if you have renamed the sound files. In that case you should select **Properties** for the missing sound, and use the **Link file...** button in the **Sound Properties** dialog.
 
-### <a name="toc.contentmenu"></a>2.6.4. [](#project.contentmenu)Content Menu
+### <a name="toc.contentmenu"></a>2.6.5. [](#project.contentmenu)Content Menu
 
 Press Alt+C to open the [](#project.contentmenu.label)**Content** menu.
 
@@ -663,7 +670,7 @@ Press Alt+C to open the [](#project.contentmenu.label)**Content** menu.
 *   [](#cmd.project.content.newsound)**New &Sound...**: Opens the properties dialog for a new sound object. After the sound is created it is opened in the sound editor. Creating new sounds is only necessary if you want to record directly in the sound editor. Recording audio in the arrangement editor will automatically create new sounds. If you want to edit an existing sound file, you should use the **Import Media...** command, or drag the sound file onto the project page or onto a track in an arrangement editor.
 *   [](#cmd.project.content.importmedia)**Import Media...**: Various types of media files can be imported to create either arrangement or sound objects. Importing a sound file (.wav or .aif) will create a sound object that links to the sound file. Importing a MIDI file (.mid) will create an arrangement. The tracks in the arrangement will be set up with the first available instrument in the device list that matches the MIDI channel numbers specified in the MIDI file. Note that you can also import MIDI files by dragging and dropping them onto tracks, but in that case only the first note or curve sequence in the MIDI file will be imported onto the track.
 
-### <a name="toc.contentlistmenu"></a>2.6.5. Content List Menu
+### <a name="toc.contentlistmenu"></a>2.6.6. Content List Menu
 
 *   [](#cmd.objectlist.openeditorpage)**Open &Editor**: Opens an editor page for the selected object. Shortcut key is Enter. The editor page can also be opened by double-clicking the object.
 *   [](#cmd.objectlist.openeditorwindow)**Open Editor in &Window**: Opens an editor window for the selected object.
@@ -677,7 +684,7 @@ Press Alt+C to open the [](#project.contentmenu.label)**Content** menu.
 *   **&Properties**: Opens the properties dialog for the selected object.
 *   **Stickie &Note**: Opens the stickie note window for the selected object.
 
-### <a name="toc.devicepanel"></a>2.6.6. [](#project.devicepanel)Device Panel
+### <a name="toc.devicepanel"></a>2.6.7. [](#project.devicepanel)Device Panel
 
 The device list shows all device mapping objects in the project. This includes I/O, busses, ReWire and VST plugins. The list can be maintained with the commands in the **Device** menu and the list right-click menu.
 
@@ -685,7 +692,7 @@ When a project is created, the device list is by default grouped into folders ac
 
 If after loading a project you see a plugin device mapping that has a red icon in the list, it indicates a "missing" plugin, meaning that the linked plugin file could not be loaded. This can happen if you have made changes to your plugin installations. Use the **Search for Missing Plugins** command in the **Device** menu, to let Podium search for and relink all the missing plugins it can find in the VST plugin scan folders as configured in **Preferences**. To search for plugins in a specific folder you can select one or more missing plugins in the list, right-click the selection and use the **Search for Missing Plugins...** command.
 
-### <a name="toc.devicemenu"></a>2.6.7. [](#project.devicemenu)Device Menu
+### <a name="toc.devicemenu"></a>2.6.8. [](#project.devicemenu)Device Menu
 
 Press Alt+D to open the [](#project.devicemenu.label)**Device** menu.
 
@@ -695,9 +702,7 @@ This menu provides commands tailored for easy management of the I/O, bus and plu
 *   [](#cmd.project.device.newbusinstance)**Add New Bus Instance**: Creates send/return mappings for a new bus instance.
 *   [](#cmd.project.device.updateaudiomidi)**Update Audio and MIDI Mappings**: If you have changed the **Audio/MIDI** configuration since the project was created, then you can use this command to update all the audio and MIDI device mappings in the project. Note that when you change the configuration in the **[Interfaces](#toc.interfaces)** dialog, Podium will ask you if you want to update the mappings in all open projects.
 *   [](#cmd.project.device.updaterewire)**Update ReWire Mappings**: Creates device mappings for all available ReWire devices not already imported in the project. For more information about ReWire, see the [ReWire devices](#toc.rewiredevices) section. The command is only available if the ReWire option is enabled in **Preferences**.
-*   [](#cmd.project.device.loaddatabase)**Load Plugin Database**: Replaces the plugin setup in the current project with the latest plugin database. Use this command to update an older project with your latest plugin installations. This command is quick since it does not scan for plugins. If you have changed your plugin installations since the database was last updated, then you should use the build or update commands instead.
-*   [](#cmd.project.device.builddatabase)**Build and Load Plugin Database**: Builds a new plugin database and then replaces the plugin setup in the current project.
-*   [](#cmd.project.device.updatedatabase)**Update and Load Plugin Database**: Updates the existing plugin database and then replaces the plugin setup in the current project. The command will only search for new plugin files. Any new detected plugins are added to the end of the plugin list in the database.
+*   [](#cmd.project.device.loadplugindatabase)**Load Plugin Database**: Replaces the plugin setup in the current project with the latest plugin database. Use this command to update an older project with your latest plugin installations. This command is quick since it does not scan for plugins. If you have changed your plugin installations since the database was last updated, then you should use the build or update commands instead.
 *   [](#cmd.project.device.loadpluginsetuptemplate)**Load Plugin Setup from Template**: Shows a submenu with a list of all your project templates. Selecting a project template will replace the plugin setup in the current project with the plugin setup from the project template. If arrangements in the current project uses plugins mappings that are not present in the selected template, then these plugin mappings are preserved and merged with the plugin setup from the template.
 *   [](#cmd.project.device.importplugin)**Import Plugin...**: Opens a file dialog where you can select one or more VST plugin files. The selected plugins will be imported and added to the end of the device list. In comparison to the plugin database commands, plugin import allows you to set up a smaller set of plugins in your project.
 *   [](#cmd.project.device.importpluginfolder)**Import Plugins from Folder...**: Opens a **Browse For Folder** dialog. Podium will scan for and import detected plugins in the specified folder and any subfolders. Plugins that are already imported are skipped.
@@ -705,7 +710,7 @@ This menu provides commands tailored for easy management of the I/O, bus and plu
 *   [](#cmd.project.device.selectmissing)**Select All Missing Plugins**: Selects all missing plugins in the list. If you no longer have the plugins available you can choose to delete the mappings by right-clicking the selection and use **Delete**.
 *   [](#cmd.project.device.searchmissing)**Search for Missing Plugins**: Searches for and relinks all the missing plugins that can be found in the VST plugin scan folders as configured in **Preferences**.
 
-### <a name="toc.devicelistmenu"></a>2.6.8. Device List Menu
+### <a name="toc.devicelistmenu"></a>2.6.9. Device List Menu
 
 *   [](#cmd.objectlist.clonemap)**New Copy...**: Opens the **Device Mapping Properties** dialog for creating a copy of the selected mapping.
 *   [](#cmd.objectlist.cloneinstance)**New Instance**: Creates a new instance of the selected global device. The new instance will have copies of all the mappings belonging to the original instance, only the copied mappings will use the next available instance number. You can access the command by right-clicking on either a device mapping or a folder containing device mappings for a global instance.
@@ -718,7 +723,7 @@ This menu provides commands tailored for easy management of the I/O, bus and plu
 *   **&Properties**: Opens the properties dialog for the selected object.
 *   **Stickie &Note**: Opens the stickie note window for the selected object.
 
-### <a name="toc.importhardwaredefinition"></a>2.6.9. [](#dialog.importhardwaredefinition)Import Hardware Definition
+### <a name="toc.importhardwaredefinition"></a>2.6.10. [](#dialog.importhardwaredefinition)Import Hardware Definition
 
 ![](images/dialog_import_hardware_definition.png)
 
